@@ -23,29 +23,39 @@ public class Main {
 
         //enter nouns
        System.out.println("Enter 5 Nouns: ");
-       for(String noun: nouns)
+       for(int i = 0; i < 5; i++)
        {
-           noun = userInput.next();
-           System.out.println("Nouns are: " + noun);
+           nouns[i] = userInput.next();
+           //System.out.println("Nouns are: " + noun);
        }//end nouns
 
         //enter verbs
         System.out.println("Enter 5 verbs: ");
-        for(String verb: verbs)
+        for(int i = 0; i < 5; i++)
         {
-            verb = userInput.next();
-            System.out.println("Verbs are: " + verb);
+            verbs[i] = userInput.next();
+            //System.out.println("Verbs are: " + verb);
         }//end for verbs
 
         //Enter Adjectives
         System.out.println("Enter 5 adjectives: ");
-        for(String adjective: adjectives)
+        for(int i = 0; i < 5; i++)
         {
-            adjective = userInput.next();
-            System.out.println("Adjectives are: " + adjective);
+            adjectives[i] = userInput.next();
+            //System.out.println("Adjectives are: " + adjective);
         }//end for adjectives
 
+    //Create the story using random inputs
+        Random rnd = new Random();
 
+        for(int i = 0; i< 5; i++){
+            int nounIndex = rnd.nextInt(5);
+            int verbIndex = rnd.nextInt(5);
+            int adjIndex = rnd.nextInt(5);
+
+            //System.out.println(num);
+            System.out.println( adjectives[adjIndex] + " " +  nouns[nounIndex] + " " + verbs[verbIndex] );
+        }
 
 
 
