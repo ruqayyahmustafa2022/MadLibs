@@ -1,7 +1,5 @@
 package com.company;
-import java.util.Locale;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -19,35 +17,37 @@ public class Main {
         Bonus: Get the words to fill each array by asking the user to supply them. */
         Scanner userInput = new Scanner(System.in);
         final int INDEX_MAX = 5;
+        /* Commenting the original arrays to make them Lists
         String[] nouns = new String[INDEX_MAX];
         String[] adjectives = new String[INDEX_MAX];
         String[] verbs = new String[INDEX_MAX];
+        */
+
+
+        List<String> nouns = new ArrayList<>();
+        List<String> adjectives = new ArrayList<>();
+        List<String> verbs = new ArrayList<>();
 
         //enter nouns
        System.out.println("Enter 5 Nouns: ");
-       for(int i = 0; i < INDEX_MAX; i++)
-       {
-           System.out.print((i+1) + ". ");
-           nouns[i] = userInput.next();
-           //System.out.println("Nouns are: " + noun);
-       }//end nouns
+
+       for(int i = 0; i< INDEX_MAX; i++){
+            nouns.add(i, userInput.next());
+            //System.out.println("Nouns are: " + noun);
+        }
 
         //enter verbs
         System.out.println("Enter 5 verbs: ");
         for(int i = 0; i < INDEX_MAX; i++)
         {
-            System.out.print((i+1) + ". ");
-            verbs[i] = userInput.next();
-            //System.out.println("Verbs are: " + verb);
+            verbs.add(i, userInput.next());
         }//end for verbs
 
         //Enter Adjectives
         System.out.println("Enter 5 adjectives: ");
         for(int i = 0; i < INDEX_MAX; i++)
         {
-            System.out.print((i+1) + ". ");
-            adjectives[i] = userInput.next();
-            //System.out.println("Adjectives are: " + adjective);
+            adjectives.add(i, userInput.next());
         }//end for adjectives
 
     //Create the story using random inputs
@@ -59,9 +59,17 @@ public class Main {
             int adjIndex = rnd.nextInt(INDEX_MAX);
 
             //System.out.println(num);
-            System.out.println( adjectives[adjIndex].toUpperCase() + " " +  nouns[nounIndex].toUpperCase()+
-                    " " + verbs[verbIndex].toUpperCase() + "." );
-        }
+            System.out.println( adjectives.get(nounIndex).toUpperCase() + " " +  nouns.get(verbIndex).toUpperCase()+
+                    " " + verbs.get(adjIndex).toUpperCase() + "." );
+        }//end for loop
+
+
+        Collections.shuffle(adjectives);
+        System.out.println(adjectives.get(0));
+        Collections.shuffle(adjectives);
+        System.out.println(adjectives.get(0));
+        Collections.shuffle(adjectives);
+        System.out.println(adjectives.get(0));
 
 
 
